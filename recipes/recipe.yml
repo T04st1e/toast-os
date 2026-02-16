@@ -6,8 +6,18 @@ name: toast-os
 description: This is my attempt at a personal linux distro X3.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: ghcr.io/ublue-os/base-main
 image-version: latest # latest is also supported if you want new updates ASAP
+
+packages:
+  - plasma-desktop
+  - sddm
+  - dolphin
+
+services:
+  - name: sddm.service
+    enabled: true
+    state: running
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
